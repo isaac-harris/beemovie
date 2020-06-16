@@ -4,22 +4,22 @@ import time
 
 
 def press(key):
-    
     keyboard.press(key)
     time.sleep(0.01)
     keyboard.release(key)
 
-def type_words(script):
-    
-    for word in script:
-        press(word)
+def type_sentence(sentence):
+    for character in sentence:
+        press(character)
         
     press(".")
     press("enter")
 
 time.sleep(10)
 
+# Each sentence is a new message
 split_script = beeText.lower().split(".")
 
+# each sentence is taken from the entire script and each key in the sentence is 'pressed' by the computer
 for sentence in split_script:
-    type_words(sentence)
+    type_sentence(sentence)
